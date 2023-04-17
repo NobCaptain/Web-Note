@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>询问你爱我吗案例</title>
+</head>
+<body>
+    <script>
+        let str;
+        do {
+            // 弹出输入框，要求用户输入。
+            str = prompt('你爱我吗？');
+            // 判断条件比较复杂我们使用do while循环。
+            // do while循环语句中的条件表达式只要输入的不是我爱你，就一直循环。
+        } while (str != '我爱你');
+        alert('我也爱你');
+    </script>
+</body>
+</html>

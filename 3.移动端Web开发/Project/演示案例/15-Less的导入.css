@@ -1,0 +1,9 @@
+div {
+  width: 150px;
+  height: 150px;
+  background-color: pink;
+  color: #444444;
+}
+div {
+  border: 1px solid red;
+}

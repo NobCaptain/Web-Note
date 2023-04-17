@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝搜索案例</title>
+    <link rel="stylesheet" href="./css/search.css">
+</head>
+<body>
+    <div class="container">
+        <img src="./images/taobao_logo.png" alt="" class="logo">
+        <div class="box">
+            <div class="tabs">
+                <div class="tab-active">宝贝</div>
+                <div>店铺</div>
+            </div>
+            <div class="search-box">
+                <input id="ipt" type="text" class="ipt" placeholder="请输入要搜索的内容">
+                <button class="btnSearch">搜索</button>
+            </div>
+            <div id="suggest-list"></div>
+        </div>
+    </div>
+    <script src="./js/jQuery-min.js"></script>
+    <script src="./js/template-web.js"></script>
+    <script type="text/html" id="tpl-suggestList">
+        {{each result}}
+            <div class="suggest-item">{{$value[0]}}</div>
+        {{/each}}
+    </script>
+    <script>
+        const obj = {}
+        let timeId = null;
+        // 声明一个防抖函数。
+        function timer(data) {
+            timeId = setTimeout(function() {
+                // 等事件触发完毕后500毫秒再执行请求数据函数，并将搜索框中的文字传入给请求数据函数。
+                getdata(data);
+            },500);
+        }
+        // 给搜索框添加键盘键弹起事件。
+        $('#ipt').on('keyup',function() {
+            clearTimeout(timeId);
+            // 触发事件就获取搜索框中的文字。
+            let str = $(this).val().trim();
+            // 触发事件就判断搜索框中有没有文字，如果没有就清空搜索结果，并隐藏。
+            if (str.length <= 0) {
+                return $('#suggest-list').empty().hide();
+            }
+            // 判断对象中是否有数据，如果有就无需经过防抖函数，直接将对象中的数据传入给渲染函数。
+            if (obj[str]) {
+                return $(render(obj[str]));
+            }
+            // 触发事件就触发防抖函数，并将搜索框中的文字传给防抖函数。
+            timer(str);
+        });
+        // 声明请求函数。
+        function getdata(data) {
+            // 因为是跨域请求所以要使用JSONP。
+            $.ajax({
+                url: 'https://suggest.taobao.com/sug?q=' + data,
+                dataType: 'jsonp',
+                success: function(res) {
+                    // 将服务器响应的数据传给渲染函数。
+                    render(res);
+                }
+            });
+        }
+        // 声明渲染函数。
+        function render(data) {
+            // 判断服务器响应的数据是否为空，如果为空就清空搜索结果，并隐藏。
+            if (data.result.length <= 0) {
+                return $('#suggest-list').empty().hide();
+            }
+            // 将服务器响应的数据通过模板字符串渲染出来。
+            let str = template('tpl-suggestList', data);
+            // 将渲染结果渲染到页面中。
+            $('#suggest-list').html(str).show();
+            // 获取搜索框中的文字。
+            let k = $('#ipt').val().trim();
+            // 将搜索框中的文字，赋值给一个空对象。
+            obj[k] = data;
+        }
+    </script>
+</body>
+</html>

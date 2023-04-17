@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box,
+        .box1 {
+            display: flex;
+            width: 600px;
+            height: 200px;
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+        .box span:nth-child(n+2) {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        .box span:first-child {
+            flex: 1;
+            height: 100px;
+            background-color: green;
+        }
+        .box span:last-child {
+            order: -2;
+        }
+        .box1 span {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        .box1 span:first-child {
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+    <div class="box1">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+</html>

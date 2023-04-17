@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示导航和返回顶部案例</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+        div {
+            position: absolute;
+            top: 400px;
+            right: 300px;
+            width: 50px;
+            height: 300px;
+            background-color: pink;
+            opacity: 0;
+            /* 显示和隐藏配合CSS过渡，利用opacityCSS属性添加渐变效果。 */
+            transition: all 1s;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>返回顶部</button>
+    </div>
+    <script>
+        const div = document.querySelector('div');
+        // 需要用到页面滚动事件。
+        window.addEventListener('scroll',function() {
+            // 检测页面被卷去的头部，如果大于300，就让侧边栏显示。
+            div.style.opacity = window.pageYOffset > 300 ? 1 : 0;
+        });
+        // 绑定点击事件。
+        div.firstElementChild.addEventListener('click',function() {
+            // 利用scrollTo()方法让HTML页面返回顶部。
+                window.scrollTo(0,0);
+        });
+    </script>
+</body>
+</html>

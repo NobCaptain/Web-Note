@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 20
+        function fun1() {
+            let num = 10;
+            function infun1() {
+                console.log(num);
+            }
+            infun1();
+        }
+        fun1();
+        function fun2() {
+            function infun2() {
+                console.log(num);
+            }
+            infun2();
+        }
+        fun2();
+        function fun3() {
+            let num = 10;
+            function infun3() {
+                let str = '起飞';
+                console.log(num);
+            }
+            infun3();
+            console.log(str);
+        }
+        fun3();
+    </script>
+</body>
+</html>

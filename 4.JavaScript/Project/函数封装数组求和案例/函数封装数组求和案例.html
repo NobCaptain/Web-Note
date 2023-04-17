@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数封装数组求和案例</title>
+</head>
+<body>
+    <script>
+        // 封装一个求和函数。
+        function getSum(arr = []) {
+            let sum = 0;
+            // 函数内部遍历数组求和。
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            console.log(sum);
+        }
+      	// 传递过去的参数是一个数组。  
+        getSum([44,22,51,35,88,99]);
+    </script>
+</body>
+</html>

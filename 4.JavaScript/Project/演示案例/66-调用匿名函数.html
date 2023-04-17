@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fun1 = function(str) {
+            console.log(str);
+        }
+        fun1('芜湖起飞');
+        fun2();
+        let fun2 = function() {
+            console.log();
+        }
+        /* 
+            上面的代码通过预解析就相当于下面的代码：
+            let fun2;
+            fun2();
+            fun2 = function() {
+                console.log();
+            }
+            因为在函数表达式中是将匿名函数通过赋值的方式赋值给变量的，所以在执行函数表达式时，匿名函数的预解析是按照变量预解析的规则来的，所以变量名()方法只能写在let 变量名 = function() {// 函数体}的后面，否则会报错。
+         */
+    </script>
+</body>
+</html>

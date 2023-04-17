@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box {
+      border: 5px solid black;
+      /* 给父盒子添加overflow属性 */
+      overflow: hidden;
+    }
+    .fl {
+      float: left;
+      width: 200px;
+      height: 100px;
+      background-color: pink;
+      margin-right: 15px;
+    }
+    .footer {
+      height: 200px;
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="fl">浮动的子元素</div>
+    <div class="fl">浮动的子元素</div>
+  </div>
+  <div class="footer">标准流的盒子</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筛选数组案例</title>
+</head>
+<body>
+    <script>
+        // 声明一个新数组。
+        let newarr = [];
+        let arr = [1500, 1200, 2000, 2100, 1800];
+        // 遍历工资数组。
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < 2000) {
+                // 将工资数组中的小于2000的工资添加进新数组。
+                newarr.push(arr[i]);
+            }
+        }
+        console.log(newarr);
+    </script>
+</body>
+</html>

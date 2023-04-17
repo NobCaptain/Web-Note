@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .yeye {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .father {
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .two {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+        }
+        .three {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="yeye">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+    <div class="one">
+        <div class="two">
+            <div class="three"></div>
+        </div>
+    </div>
+    <script>
+        const yeye = document.querySelector('.yeye');
+        const father = document.querySelector('.father');
+        const son = document.querySelector('.son');
+        yeye.addEventListener('click',function() {
+            console.log('我是爷爷');
+        },true);
+        father.addEventListener('click',function() {
+            console.log('我是爸爸');
+        },true);
+        son.addEventListener('click',function() {
+            console.log('我是儿子');
+        });
+        const one = document.querySelector('.one');
+        const two = document.querySelector('.two');
+        const three = document.querySelector('.three');
+        one.addEventListener('click',function() {
+            console.log('我是爷爷');
+        });
+        two.addEventListener('click',function() {
+            console.log('我是爸爸');
+        });
+        three.addEventListener('click',function() {
+            console.log('我是儿子');
+        });
+    </script>
+</body>
+</html>

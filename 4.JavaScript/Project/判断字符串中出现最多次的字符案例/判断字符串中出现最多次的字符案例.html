@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断字符串中出现最多次的字符案例</title>
+</head>
+<body>
+    <script>
+        let arr = 'abcoefoxyozzopp';
+        // 声明一个对象。
+        let obj = {};
+        // 使用charAt()方法来遍历字符串
+        for (let i = 0; i < arr.length; i++) {
+            let chars = arr.charAt(i);
+            // 判断字符串中的每个字符在对象中有没有设置成属性名，如果没有就创建一个并且赋值为1，如果有就让其属性值加一，通过这个方法我们就可以得到一个对象，该对象中存储着字符串中没有重复出现的字符，重复出现的字符会统计出现的次数。
+            if (obj[chars]) {
+                obj[chars]++
+            } else {
+                obj[chars] = 1;
+            }
+        }
+        console.log(obj);
+        // 遍历对象获取在字符串中出现次数最多的字符。
+        let max = 0;
+        for (let k in obj) {
+            if (obj[k] > max) {
+                max = obj[k];
+                ch = k;
+            }
+        }
+        console.log('出现次数最多的字符是：' + ch);
+    </script>
+</body>
+</html>

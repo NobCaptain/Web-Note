@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿京东固定导航栏案例</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+        .nav {
+            position: fixed;
+            top: -50px;
+            width: 100%;
+            height: 50px;
+            background-color: pink;
+            transition: all 1s;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            margin-top: 400px;
+            background-color: skyblue;
+        }
+        .dh {
+            position: absolute;
+            top: 400px;
+            right: 100px;
+            width: 50px;
+            height: 300px;
+            background-color: red;
+            opacity: 0;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">导航栏</div>
+    <div class="box">秒杀模块</div>
+    <div class="dh">电梯导航</div>
+    <script>
+        const nav = document.querySelector('.nav');
+        const box = document.querySelector('.box');
+        const dh = document.querySelector('.dh');
+        // 用到页面滚动事件。
+        window.addEventListener('scroll',function() {
+            // 检测页面滚动大于等于秒杀模块的位置，则滑入，否则滑出。
+            nav.style.top = this.pageYOffset >= box.offsetTop ? 0 : '-50px';
+            dh.style.opacity = this.pageYOffset >= box.offsetTop ? 1 : 0;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setInterval(function one() {
+            console.log('1');
+        }, 1000);
+        let two = function() {
+            console.log(2);
+        }
+        setInterval(two,1000);
+        let three = function() {
+            console.log(3);
+        }
+        setInterval(three(),1000);
+        let four = function() {
+            console.log(4);
+        }
+        setInterval('four()',1000)
+        let five = function() {
+            console.log(5);
+        }
+        let num = setInterval(four,1000);
+        clearInterval(num);
+    </script>
+</body>
+</html>

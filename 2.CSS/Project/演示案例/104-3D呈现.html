@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      body {
+        perspective: 800px;
+      }
+      .box {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        transition: all .5s;
+      }
+      .box:hover {
+        transform: rotateY(80deg);
+      }
+      .box div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: pink;
+      }
+      .box div:last-child{
+        background-color: skyblue;
+        transform: rotateX(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+</html>

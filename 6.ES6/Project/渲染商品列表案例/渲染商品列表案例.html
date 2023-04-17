@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渲染商品列表案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 1200px;
+            height: 600px;
+            margin: 100px auto;
+        }
+        .smallbox {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        const msg = {
+            "code": 200,
+            "msg": "获取新闻列表成功",
+            "data": [
+                {
+                    "id": 1,
+                    "title": "抽油烟机",
+                    "money": 499
+                },
+                {
+                    "id": 2,
+                    "title": "漫画",
+                    "money": 56
+                },
+                {
+                    "id": 3,
+                    "title": "伏特加",
+                    "money": 1669
+                },
+                {
+                    "id": 4,
+                    "title": "键盘",
+                    "money": 1214
+                },
+                {
+                    "id": 5,
+                    "title": "鼠标",
+                    "money": 132
+                },
+                {
+                    "id": 6,
+                    "title": "手机",
+                    "money": 124
+                },
+                {
+                    "id": 7,
+                    "title": "盒子",
+                    "money": 4214
+                },
+                {
+                    "id": 8,
+                    "title": "鞋子",
+                    "money": 23
+                }
+            ]
+        }
+        const {data} = msg;
+        let str = '';
+        // 利用数组的forEach()方法遍历数据里面的数据。
+        data.forEach(ele => {
+            const {title,money} = ele;
+            // 拿到数据，利用字符串拼接生成结构添加到页面中。
+            str += `
+            <div class="smallbox">
+            <p>${title}</p>
+            <p>${money}</p>
+            </div>
+            `;
+        });
+        document.querySelector('.box').innerHTML = str;
+    </script>
+</body>
+</html>

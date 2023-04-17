@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面输出用户信息案例</title>
+</head>
+<body>
+    <script>
+        // 弹出输入框，让用户输入姓名，然后用变量保存起来。
+        let uname = prompt('请输入您的姓名');
+        // 弹出输入框，让用户输入年龄，然后用变量保存起来。
+        let age = prompt('请输入您的年龄');
+        // 通过字符串拼接，然后向页面输出大家好，我叫xxx，今年xx岁了。
+        document.write(`大家好，我叫${uname}，今年${age}岁了`);
+    </script>
+</body>
+</html>

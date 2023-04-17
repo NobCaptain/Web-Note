@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(/^哈*$/.test(''));// 只要字符串中是哈或字符串是很多个哈或字符串是个空字符串就会返回true否则返回false
+    console.log(/^哈*$/.test('哈'));// 只要字符串中是哈或字符串是很多个哈或字符串是个空字符串就会返回true否则返回false
+    console.log(/^哈*$/.test('哈哈'));// 只要字符串中是哈或字符串是很多个哈或字符串是个空字符串就会返回true否则返回false
+    console.log(/^哈*$/.test('很二哈哈'));// 只要字符串中是哈或字符串是很多个哈或字符串是个空字符串就会返回true否则返回false
+    console.log(/^哈+$/.test(''));// 只要字符串是哈或字符串是很多个哈就返回true否则返回false
+    console.log(/^哈+$/.test('哈'));// 只要字符串是哈或字符串是很多个哈就返回true否则返回false
+    console.log(/^哈+$/.test('哈哈'));// 只要字符串是哈或字符串是很多个哈就返回true否则返回false
+    console.log(/^哈+$/.test('很二哈哈'));// 只要字符串是哈或字符串是很多个哈就返回true否则返回false
+    console.log(/^哈?$/.test(''));// 只要字符串是哈或字符串是空字符串就返回true否则返回false
+    console.log(/^哈?$/.test('哈'));// 只要字符串是哈或字符串是空字符串就返回true否则返回false
+    console.log(/^哈?$/.test('哈哈'));// 只要字符串是哈或字符串是空字符串就返回true否则返回false
+    console.log(/^哈?$/.test('很二哈哈'));// 只要字符串是哈或字符串是空字符串就返回true否则返回false
+    console.log(/^哈{5}$/.test(''));// 只要字符串是哈哈哈哈哈5哈就返回true否则返回false
+    console.log(/^哈{5}$/.test('哈'));// 只要字符串是哈哈哈哈哈5哈就返回true否则返回false
+    console.log(/^哈{5}$/.test('哈哈'));// 只要字符串是哈哈哈哈哈5哈就返回true否则返回false
+    console.log(/^哈{5}$/.test('很二哈哈'));// 只要字符串是哈哈哈哈哈5哈就返回true否则返回false
+    console.log(/^哈{4,}$/.test(''));// 只要字符串是哈哈哈哈4个哈或字符串是4个哈以上就返回true否则返回false
+    console.log(/^哈{4,}$/.test('哈'));// 只要字符串是哈哈哈哈4个哈或字符串是4个哈以上就返回true否则返回false
+    console.log(/^哈{4,}$/.test('哈哈'));// 只要字符串是哈哈哈哈4个哈或字符串是4个哈以上就返回true否则返回false
+    console.log(/^哈{4,}$/.test('很二哈哈'));// 只要字符串是哈哈哈哈4个哈或字符串是4个哈以上就返回true否则返回false
+    console.log(/^哈{3.5}$/.test(''));// 只要字符串是哈哈哈3个哈或字符串是哈哈哈哈哈5个哈或字符串是哈哈哈哈4个哈就返回true否则返回false
+    console.log(/^哈{3.5}$/.test('哈'));// 只要字符串是哈哈哈3个哈或字符串是哈哈哈哈哈5个哈或字符串是哈哈哈哈4个哈就返回true否则返回false
+    console.log(/^哈{3.5}$/.test('哈哈'));// 只要字符串是哈哈哈3个哈或字符串是哈哈哈哈哈5个哈或字符串是哈哈哈哈4个哈就返回true否则返回false
+    console.log(/^哈{3.5}$/.test('很二哈哈'));// 只要字符串是哈哈哈3个哈或字符串是哈哈哈哈哈5个哈或字符串是哈哈哈哈4个哈就返回true否则返回false
+  </script>
+</body>
+</html>

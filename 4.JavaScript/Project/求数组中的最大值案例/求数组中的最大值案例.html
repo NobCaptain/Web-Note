@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求数组中的最大值案例</title>
+</head>
+<body>
+    <script>
+        let arr = [2,6,1,77,52,25,7];
+        // 声明一个保存最大值的变量max。
+        let max;
+        // 默认最大值可以取数组中的第一个数据。
+        max = arr[0];
+        // 遍历这个数组，把里面的每个数据都和max变量相比较。
+        for (let i = 1; i < arr.length; i++) {
+            // 如这个数据大于 `max` 变量就把这个数据存到max变量里，否则继续下一轮比较。
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        // 输出结果。
+        console.log(max);
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+html {
+    font-size: 28px;
+}
+div {
+    float: left;
+    width: 50%;
+    height: 2rem;
+    background-color: pink;
+}

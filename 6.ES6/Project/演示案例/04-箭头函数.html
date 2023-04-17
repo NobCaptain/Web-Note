@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fn1 = x => {
+            console.log(x);
+        }
+        fn1(1);
+        const fn2 = x => x + x;
+        console.log(fn2(1));
+        const fn3 = name => ({username: name});
+        console.log(fn3('Noob'));
+        const fn4 = (...arr) => {
+            console.log(arr);
+        }
+        fn4(1,2,3,4);
+        function fun() {
+            let i = 10;
+            const fn = () => {
+                console.log(this);
+            }
+            fn();
+        }
+        fun();
+        const obj = {
+            name: '123',
+            sayhey: function() {
+                let i = 10;
+                const fn = () => {
+                    console.log(this);
+                }
+                fn();
+            }
+        }
+        obj.sayhey();
+    </script>
+</body>
+</html>

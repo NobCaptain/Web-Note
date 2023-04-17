@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字补零案例</title>
+</head>
+<body>
+    <script>
+        // 弹出输入框，让用户输入数字，把这个值取过来保存到变量中。
+        let num = prompt('请输入一个数');
+        // 使用三元表达式来给数字补零。
+        num = num < 10 ? 0 + num : num;
+        console.log(num);
+    </script>
+</body>
+</html>

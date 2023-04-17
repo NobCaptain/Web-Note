@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(/[abc]/.test('a'));// 只要字符串中包含了小写的abc英文字母中的任意一个字符，就返回true否则就返回false
+    console.log(/[abc]/.test('adgc'));// 只要字符串中包含了小写的abc英文字母中的任意一个字符，就返回true否则就返回false
+    console.log(/[abc]/.test('ed'));// 只要字符串中包含了小写的abc英文字母中的任意一个字符，就返回true否则就返回false
+    console.log(/\d/.test('de'));// 只要字符串中包含了0到9中的任意一个数字，就返回true否则就返回false
+    console.log(/\d/.test('13asdf24'));// 只要字符串中包含了0到9中的任意一个数字，就返回true否则就返回false
+    console.log(/\d/.test('24343221'));// 只要字符串中包含了0到9中的任意一个数字，就返回true否则就返回false
+    console.log(/^[a-z]$/.test('a'));// 字符串只能是小写的a-z26个英文字母中的任意一个字符，才会返回true否则就返回false
+    console.log(/^[a-z]$/.test('aa'));// 字符串只能是小写的a-z26个英文字母中的任意一个字符，才会返回true否则就返回false
+    console.log(/^[a-z]$/.test('b'));// 字符串只能是小写的a-z26个英文字母中的任意一个字符，才会返回true否则就返回false
+    console.log(/[^a-z]/.test('de'));// 只要字符串中包含了除小写的a-z26个英文字母以外的任意一个字符，就返回true否则就返回false
+    console.log(/[^a-z]/.test('ABC'));// 只要字符串中包含了除小写的a-z26个英文字母以外的任意一个字符，就返回true否则就返回false
+    console.log(/[^a-z]/.test('a'));// 只要字符串中包含了除小写的a-z26个英文字母以外的任意一个字符，就返回true否则就返回false
+    console.log(/^[^a-z]$/.test('a'));// 字符串只能是除小写的a-z26个英文字母以外的任意一个字符，才会返回true否则就返回false
+    console.log(/^[^a-z]$/.test('AA'));// 字符串只能是除小写的a-z26个英文字母以外的任意一个字符，才会返回true否则就返回false
+    console.log(/^[^a-z]$/.test('A'));// 字符串只能是除小写的a-z26个英文字母以外的任意一个字符，才会返回true否则就返回false
+    console.log(/./.test('\n'));// 字符串只能是除换行符以外的任意一个字符，才会返回true否则就返回false
+    console.log(/./.test('2'));// 字符串只能是除换行符以外的任意一个字符，才会返回true否则就返回false
+    console.log(/A.B/.test('ABB'));// 字符串只能是A除换行符以外的任意一个字符B，才会返回true否则就返回false
+    console.log(/A.B/.test('A\nB'));// 字符串只能是A除换行符以外的任意一个字符B，才会返回true否则就返回false
+  </script>
+</body>
+</html>

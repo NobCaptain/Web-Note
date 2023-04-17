@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明一个函数，将用户要携带的数据转换成查询字符串。
+        function cl(obj) {
+            // 声明一个数组。
+            let arr = [];
+            // 因为用户要携带的数据是对象的形式，所以要遍历对象将其转换成查询字符串，将对象中的每个数据转换后加入到数组中。
+            for (k in obj) {
+                arr.push(k + '=' + obj[k]);
+            }
+            // 将数组转换成字符串，并且返回给函数的调用者。
+            return arr.join('&');
+        }
+        // 声明一个函数，用于发起Ajax请求。
+        function ajax(obj) {
+            // 将用户要携带的数据转换成查询字符串。
+            let str = cl(obj.data);
+            // 实例化XMLHttpRequest对象。
+            const xhr = new XMLHttpRequest();
+            // 判断是发起get请求还是post请求。
+            if (obj.type === 'GET') {
+                xhr.open('GET',obj.url+ '?' + str);
+                xhr.send();
+            } else {
+                xhr.open('POST',obj.url);
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                xhr.send(str)
+            }
+            // 将服务器响应的数据传给用户设置的匿名函数中的形参。
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // 服务器响应回来的数据是JSON字符串要将其转换成JavaScript对象我们才能使用。
+                    let redata = JSON.parse(xhr.responseText);
+                    obj.success(redata);
+                }
+            }
+        }
+        // 发起Ajax请求。
+        ajax({
+            type: 'GET',
+            url: 'http://www.liulongbin.top:3006/api/getbooks',
+            data: {id: 1},
+            success: function(res) {
+                console.log(res);
+            }
+        });
+    </script>
+</body>
+</html>

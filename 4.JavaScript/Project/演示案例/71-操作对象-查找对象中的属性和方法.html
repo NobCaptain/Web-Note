@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            'user-name': '可可',
+            type: '阿拉斯加犬',
+            age: 5,
+            color: '棕色',
+            jineng: function(num) {
+                console.log('汪汪汪');
+                console.log('演电影');
+                console.log(num);
+            },
+            'say-he': function() {
+                console.log('你好');
+            }
+        }
+        console.log(obj['user-name'],obj.type,obj.age,obj.color);
+        obj.jineng(1);
+        obj['say-he']();
+    </script>
+</body>
+</html>

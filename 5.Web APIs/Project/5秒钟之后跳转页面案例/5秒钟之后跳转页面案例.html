@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5秒钟之后跳转页面案例</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.baidu.com">支付成功<span>5</span>秒之后跳转页面</a>
+    <script>
+        // 目标元素是链接。
+        const a = document.querySelector('a');
+        let num = 5;
+        // 利用定时器设置数字倒计时。
+        let timeId = setInterval(function() {
+            num--;
+            a.innerHTML = `支付成功<span>${num}</span>秒之后跳转页面`;
+            // 时间到了，自动跳转到新的页面。
+            if (num === 0) {
+                clearInterval(timeId);
+                location.href = 'http://www.baidu.com';
+            }
+        },1000);
+    </script>
+</body>
+</html>

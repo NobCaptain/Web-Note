@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./js/jQuery-min.js"></script>
+    <script>
+        const obj1 = {
+            age: 18,
+            sayhai: {
+                sex: '男'
+            }
+        }
+        const obj2 = {
+            age: 18,
+            sayhai: {
+                sex: '男'
+            }
+        }
+        const obj3 = {}
+        const obj4 = {}
+        $.extend(obj3,obj1);
+        $.extend(true,obj4,obj2);
+        obj3.age = 20;
+        obj3.sayhai.sex = '女';
+        console.log(obj1);
+        console.log(obj3);
+        obj4.age = 20;
+        obj4.sayhai.sex = '女';
+        console.log(obj2);
+        console.log(obj4);
+    </script>
+</body>
+</html>

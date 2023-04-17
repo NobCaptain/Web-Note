@@ -1,0 +1,374 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #f3f5f7;
+}
+.w {
+    width: 1200px;
+    margin: auto;
+}
+/* header区域 */
+.header {
+    height: 42px;
+    margin: 30px auto;
+}
+.logo {
+    float: left;
+}
+li {
+    list-style: none;
+}
+.nav {
+    float: left;
+    margin-left: 70px;
+}
+.nav li {
+    float: left;
+    margin-right: 17px;
+}
+.nav li a {
+    display: block;
+    height: 40px;
+    padding: 0px 13px;
+    color: #050505;
+    font-size: 18px;
+    text-decoration: none;
+    line-height: 40px;
+}
+.nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+.search {
+    float: left;
+    margin-left: 65px;
+}
+.search input {
+    float: left;
+    width: 360px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    border-right: none;
+}
+.search input::placeholder {
+    padding-left: 19px;
+    color: #bfbfbf;
+    font-size: 14px;
+    line-height: 40px;
+}
+.search button {
+    float: left;
+    width: 50px;
+    height: 42px;
+    border: 0;
+    background-color: #00a4ff;
+    background-image: url(../imgs/btn.png);
+}
+.user {
+    float: left;
+    margin-left: 30px;
+    color: #666;
+    font-size: 14px;
+    line-height: 42px;
+}
+.user img {
+    float: left;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+/* banner区域 */
+.banner {
+    height: 420px;
+    background-color: #1c036c;
+}
+.banner .w {
+    height: 100%;
+    background-image: url(../imgs/banner.png);
+}
+.banner .w .subnav {
+    float: left;
+    width: 190px;
+    background-color: rgba(0, 0, 0, .3);
+}
+.banner .w .subnav ul {
+    margin: 12px 20px;
+}
+.banner .w .subnav ul a {
+    display: block;
+    height: 44px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 44px;
+}
+.banner .w .subnav ul a:hover {
+    color: #00b4ff;
+}
+.banner .w .subnav ul a span {
+    float: right;
+}
+.course {
+    float: right;
+    width: 228px;
+    height: 300px;
+    margin-top: 50px;
+}
+.course h2 {
+    height: 48px;
+    background-color: #9bceea;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 48px;
+}
+.course .bd {
+    height: 252px;
+    background-color: #fff;
+}
+.course .bd ul {
+    padding: 0px 20px;
+}
+.course .bd li {
+    height: 47px;
+    padding-top: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #4e4e4e;
+    font-size: 14px;
+}
+.course .bd li em {
+    font-style: normal;
+    font-size: 16px;
+}
+.course .bd li span {
+    color: #a5a5a5;
+    font-size: 12px;
+}
+.course .bd a {
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin-top: 4px;
+    margin-left: 14px;
+    border: 1px solid #00a4ff;
+    color: #00a4ff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+/* goods区域 */
+.goods {
+    height: 60px;
+    margin-top: 8px;
+    background-color: #fff;
+    line-height: 60px;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, .3);
+}
+.goods h3 {
+    float: left;
+    margin-left: 34px;
+    color: #00a4ff;
+    font-size: 16px;
+}
+.goods ul {
+    float: left;
+    margin-left: 34px;
+}
+.goods ul li {
+    float: left;
+}
+.goods ul li a {
+    padding: 0px 35px;
+    border-left: 1px solid #bfbfbf;
+    color: #050505;
+    font-size: 16px;
+    text-decoration: none;
+}
+.goods .mod {
+    float: right;
+    margin-right: 26px;
+    color: #00a4ff;
+    font-size: 14px;
+}
+/* box区域 */
+.box {
+    margin-top: 38px;
+}
+.box-hd {
+    height: 40px;
+}
+.box-hd h3 {
+    float: left;
+    color: #494949;
+    font-size: 20px;
+}
+.box-hd a {
+    float: right;
+    margin-top: 8px;
+    color: #a5a5a5;
+    font-size: 12px;
+    text-decoration: none;
+}
+.box-bd {
+    overflow: hidden;
+}
+.box-bd li {
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+.box-bd .cl {
+    margin: 0;
+}
+.box-bd li img {
+    width: 100%;
+}
+.box-bd li h4 {
+    width: 184px;
+    margin-top: 25px;
+    margin-left: 24px;
+    color: #050505;
+    font-weight: 400;
+    font-size: 14px;
+}
+.box-bd .info {
+    margin-top: 20px;
+    margin-left: 24px;
+    color: #999;
+    font-size: 12px;
+}
+.box-bd .info span {
+    color: #ff7c2d;
+}
+/* expand区域 */
+.expand {
+    margin-top: 23px;
+    overflow: hidden;
+}
+.expand-hd {
+    height: 40px;
+}
+.expand-hd h3 {
+    float: left;
+    color: #494949;
+    font-size: 20px;
+}
+.expand-hd ul {
+    float: left;
+    margin-left: 317px;
+    margin-top: 5px;
+}
+.expand-hd ul li {
+    float: left;
+}
+.expand-hd ul a {
+    padding: 0px 35px;
+    color: #868686;
+    font-size: 16px;
+    text-decoration: none;
+}
+.expand-hd ul a:hover {
+    color: #00a4ff;
+}
+.expand-hd .mod {
+    float: right;
+    margin-top: 5px;
+    color: #a5a5a5;
+    font-size: 12px;
+    text-decoration: none;
+}
+.expand-bd .left {
+    float: left;
+    width: 228px;
+    height: 392px;
+    background-color: pink;
+}
+.expand-bd .right {
+    float: right;
+    width: 957px;
+    height: 392px;
+}
+.expand-bd .right ul {
+    margin-top: 22px;
+}
+.expand-bd .right li {
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    background-color: #fff;
+}
+.expand-bd .right .cl {
+    margin: 0;
+}
+.expand-bd .right img {
+    width: 100%;
+}
+.expand-bd .right li h4 {
+    width: 184px;
+    margin-top: 25px;
+    margin-left: 24px;
+    color: #050505;
+    font-size: 14px;
+    font-weight: 400;
+}
+.expand-bd .right li .info {
+    margin-top: 20px;
+    margin-left: 24px;
+    color: #606060;
+    font-size: 12px;
+}
+.expand-bd .right li .info span {
+    color: #ff7c2d;
+}
+/* footer区域 */
+.footer {
+    height: 400px;
+    margin-top: 40px;
+    background-color: #fff;
+}
+.footer .w {
+    padding-top: 33px;
+}
+.footer .copyright {
+    float: left;
+}
+.footer .copyright p {
+    margin-top: 25px;
+    color: #666;
+    font-size: 12px;
+}
+.footer .copyright a {
+    display: block;
+    width: 118px;
+    height: 34px;
+    margin-top: 15px;
+    border: 1px solid #00a4ff;
+    color: #00a4ff;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 34px;
+}
+.footer .links {
+    float: right;
+}
+.footer .links dl {
+    float: left;
+    margin-left: 120px;
+}
+.footer .links dl dt {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+.footer .links dl a {
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+}

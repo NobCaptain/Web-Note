@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    <script src="./js/template-web.js"></script>
+    <!-- 定义模板 -->
+    <script type="text/html" id="muban">
+        <div><h3>{{title}}</h3></div>
+        <div>爱好：
+            <ul>
+                {{each happy}}<li>索引号：{{$index}}，数据：{{$value}}</li>{{/each}}
+            </ul>
+        </div>
+        <div>{{wuhu.qf}}</div>
+    </script>
+    <script>
+        // 定义数据。
+        const obj = {
+            title: '用户信息',
+            happy: ['唱歌','跳舞','rap'],
+            isVIP: true,
+            wuhu: {
+                qf: '芜湖起飞'
+            }
+        }
+        // 调用template()方法。
+        let str = template('muban',obj);
+        // 渲染页面结构。
+        const div = document.querySelector('.box');
+        div.innerHTML = str;
+    </script>
+</body>
+</html>

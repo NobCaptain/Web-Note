@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>0</div>
+    <script src="./js/lodash.min.js"></script>
+    <script>
+        const div = document.querySelector('div');
+        let num = 0;
+        function mouseMove() {
+            div.innerHTML = ++num;
+        }
+        div.addEventListener('mousemove',_.debounce(mouseMove,500));
+    </script>
+</body>
+</html>

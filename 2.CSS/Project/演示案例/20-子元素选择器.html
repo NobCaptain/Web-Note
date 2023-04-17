@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      /* 子元素只能是儿子不能是孙子或者重孙子 */
+      div>a {
+        color: red;
+      }
+      ul>li>span>a {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <a href="#">儿子</a>
+      <p>
+        <a href="#">孙子</a>
+      </p>
+    </div>
+    <ul>
+      <li>
+        <span>
+          <a href="#">文本</a>
+        </span>
+      </li>
+    </ul>
+  </body>
+</html>

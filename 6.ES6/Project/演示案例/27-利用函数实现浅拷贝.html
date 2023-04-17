@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        const obj1 = {
+            age: 10,
+            happy: ['唱','跳','rap']
+        }
+        const obj2 = {}
+        function shallowCopy(newObj,oldObj) {
+            for (let k in oldObj) {
+                newObj[k] = oldObj[k];
+            }
+        }
+        shallowCopy(obj2,obj1);
+        obj2.age = 20;
+        obj2.happy[0] = '唱歌';
+        console.log(obj1);
+        console.log(obj2);
+    </script>
+</body>
+</html>

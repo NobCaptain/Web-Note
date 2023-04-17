@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消息提示对象封装案例</title>
+    <style>
+        .modal {
+          width: 300px;
+          min-height: 100px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+          position: fixed;
+          z-index: 999;
+          left: 50%;
+          top: 50%;
+          transform: translate3d(-50%, -50%, 0);
+          background-color: #fff;
+        }
+        .modal .header {
+          line-height: 40px;
+          padding: 0 10px;
+          position: relative;
+          font-size: 20px;
+        }
+        .modal .header i {
+          font-style: normal;
+          color: #999;
+          position: absolute;
+          right: 15px;
+          top: -2px;
+          cursor: pointer;
+        }
+        .modal .body {
+          text-align: center;
+          padding: 10px;
+        }
+        .modal .footer {
+          display: flex;
+          justify-content: flex-end;
+          padding: 10px;
+        }
+        .modal .footer a {
+          padding: 3px 8px;
+          background: #ccc;
+          text-decoration: none;
+          color: #fff;
+          border-radius: 2px;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+        .modal .footer a.submit {
+          background-color: #369;
+        }
+      </style>
+</head>
+<body>
+    <button id="delete">删除</button>
+    <button id="login">登录</button>
+    <script>
+        // 定义模态框Modal构造函数，用来创建对象。
+        function Modal(title = '',message = '') {
+            // 创建<div>标签。
+            this.modalbox = document.createElement('div');
+            // 给创建的<div>标签添加modal类名。
+            this.modalbox.className = 'modal';
+            // 往创建的<div>标签中添加内容。
+            this.modalbox.innerHTML = `
+                <div class="header">${title} <i>x</i></div>
+                <div class="body">${message}</div>
+            `;
+        }
+        // 模态框具备打开功能open()方法。
+        Modal.prototype.open = function() {
+            // 判断页面中是否有模态框了，如果有就删除模态框，然后再添加模态框。
+            const box = document.querySelector('.modal');
+            box && document.body.removeChild(this.modalbox);
+            // 只要调用了open()方法就往页面中添加模态框。
+            document.body.appendChild(this.modalbox);
+            // 给模态框中的x添加点击事件，当点击了x就删除模态框。
+            this.modalbox.querySelector('i').addEventListener('click',() => {
+                this.close();
+            })
+        }
+        // 模态框具备关闭功能close()方法。
+        Modal.prototype.close = function() {
+            // 只要调用了close()方法就删除模态框。
+            document.body.removeChild(this.modalbox);
+        }
+        document.querySelector('#delete').addEventListener('click',() => {
+            const modal = new Modal('温馨提示','您没有权限删除');
+            modal.open();
+        });
+        document.querySelector('#login').addEventListener('click',() => {
+            const modal = new Modal('友情提示', '您还么有注册账号');
+            modal.open();
+        });
+    </script>
+</body>
+</html>

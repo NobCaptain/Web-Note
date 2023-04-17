@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <!-- Demo styles -->
+    <style>
+      .get_job_focus {
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+      }
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        transition: 300ms;
+        transform: scale(0.8);
+      }
+      .swiper-slide a {
+        width: 400px;
+        height: 400px;
+      }
+      .swiper-slide a img {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-slide-active,
+      .swiper-slide-duplicate-active {
+        transform: scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="get_job_focus">
+      <!-- Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img src="./imgs/pic.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+      });
+    </script>
+  </body>
+</html>

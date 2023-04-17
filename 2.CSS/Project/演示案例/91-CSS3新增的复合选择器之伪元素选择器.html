@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 800px;
+        height: 100px;
+        background-color: pink;
+      }
+      div::before {
+        content: '给div元素的内容的最前面添加一个元素';
+      }
+      div::after {
+        content: '给div元素的内容的最后面添加一个元素';
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>div元素的内容</span>
+    </div>
+  </body>
+</html>

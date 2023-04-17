@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            overflow: scroll;
+        }
+        .one {
+           margin-top: 500px; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+    </div>
+    <button>返回元素的内容的顶部</button>
+    <br>
+    <button class="one">返回HTML页面的顶部</button>
+    <button class="one">返回HTML页面的顶部</button>
+    <script>
+        console.log(window.pageXOffset);
+        const html = document.documentElement;
+        window.addEventListener('scroll',function() {
+            console.log('浏览器滚动条滚动了');
+            console.log(this.pageYOffset);
+            console.log(html.scrollTop);
+        });
+        const div = document.querySelector('div');
+        div.addEventListener('scroll',function() {
+            console.log('元素中的滚动条滚动了');
+            console.log(this.scrollTop);
+        });
+        const button = document.querySelectorAll('button');
+        button[0].addEventListener('click',function() {
+            div.scrollTo(0,0);
+        });
+        button[1].addEventListener('click',function() {
+            html.scrollTop = 0;
+        });
+        button[2].addEventListener('click',function() {
+            html.scrollTo(0,0);
+        });
+    </script>
+</body>
+</html>

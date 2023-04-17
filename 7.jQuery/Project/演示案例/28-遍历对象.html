@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1234</div>
+    <div>1234</div>
+    <div>1234</div>
+    <div>1234</div>
+    <div>1234</div>
+    <script src="./js/jQuery-min.js"></script>
+    <script>
+        const arr = ['pink','yellow','red','green','skyblue'];
+        const obj = {
+            uname: 'pink',
+            age: 19
+        }
+        $.each(arr,function(index,ele) {
+            console.log(index);
+            console.log(ele);
+        });
+        $.each(obj,function(index,ele) {
+            console.log(index);
+            console.log(ele);
+        });
+    </script>
+</body>
+</html>

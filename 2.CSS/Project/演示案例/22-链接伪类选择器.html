@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      .one:link {
+        color: black;
+      }
+      .two:visited {
+        color: red;
+      }
+      .three:hover {
+        color: pink;
+      }
+      .four:active {
+        color: green;
+      }
+      /* :hover和:active链接伪类选择器比较特殊，它们不仅可以用于超链接还可以用于其他元素，这时选择器选中的标签不用必须为超链接标签 */
+      div:hover {
+        color: blue;
+      }
+      p:active {
+        color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="javascript:void(0);" class="one">未被访问过的超链接</a><br>
+    <a href="#" class="two">已被访问过的超链接</a><br>
+    <a href="javascript:void(0);" class="three">鼠标悬停在超链接上的时候</a><br>
+    <a href="javascript:void(0);" class="four">超链接被鼠标激活（即鼠标已经按下、还没有释放）的时候</a><br>
+    <div>其他元素</div>
+    <p>其他元素</p>
+  </body>
+</html>

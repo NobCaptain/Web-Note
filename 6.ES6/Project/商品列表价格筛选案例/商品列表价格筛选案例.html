@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表价格筛选案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 1200px;
+            height: 600px;
+            margin: 100px auto;
+        }
+        .smallbox {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+        .sx {
+            position: absolute;
+            top: 40px;
+            left: 100px;
+            width: 1200px;
+            height: 50px;
+        }
+        .smallsx {
+            float: left;
+            width: 285px;
+            height: 50px;
+            background-color: pink;
+            margin-right: 10px;
+        }
+        .smallsx:active,
+        .smallsx:focus {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="sx">
+        <div class="smallsx" data-id="1">0~100</div>
+        <div class="smallsx" data-id="2">100~200</div>
+        <div class="smallsx" data-id="3">200~300</div>
+        <div class="smallsx">全部区间</div>
+    </div>
+    <div class="box"></div>
+    <script>
+        const msg = {
+            "code": 200,
+            "msg": "获取新闻列表成功",
+            "data": [
+                {
+                    "id": 1,
+                    "title": "抽油烟机",
+                    "money": 499
+                },
+                {
+                    "id": 2,
+                    "title": "漫画",
+                    "money": 56
+                },
+                {
+                    "id": 3,
+                    "title": "伏特加",
+                    "money": 1669
+                },
+                {
+                    "id": 4,
+                    "title": "键盘",
+                    "money": 1214
+                },
+                {
+                    "id": 5,
+                    "title": "鼠标",
+                    "money": 132
+                },
+                {
+                    "id": 6,
+                    "title": "手机",
+                    "money": 124
+                },
+                {
+                    "id": 7,
+                    "title": "盒子",
+                    "money": 4214
+                },
+                {
+                    "id": 8,
+                    "title": "鞋子",
+                    "money": 23
+                }
+            ]
+        }
+        const {data} = msg;
+        // 初始化需要渲染的页面，同时因为点击不同的需求，还会重新渲染不同的页面，所以渲染页面要做成一个函数。
+        function render(data) {
+            let str = '';
+            data.forEach(ele => {
+                const {title,money} = ele;
+                str += `
+                <div class="smallbox">
+                <p>${title}</p>
+                <p>${money}</p>
+                </div>
+                `;
+            });
+            document.querySelector('.box').innerHTML = str;
+        }
+        render(data);
+        // 采取事件委托方式来将区间盒子都添加上点击事件。
+        document.querySelector('.sx').addEventListener('click',e => {
+            // 可以使用对象解构，把事件对象解构。
+            const {tagName,dataset} = e.target;
+            if (tagName === 'DIV') {
+                // 因为全部区间不需要筛选，所以直接把所有数据渲染即可。
+                let arr = data;
+                // 利用数组的filter()方法来筛选出符合条件的数据，因为生成的是一个数组，所以只需要传递给渲染函数即可。
+                // 筛选条件是根据点击的盒子的自定义属性来判断的。
+                if (dataset.id === '1') {
+                    arr = data.filter(ele => ele.money > 0 && ele.money <= 100);
+                } else if (dataset.id === '2') {
+                    arr = data.filter(ele => ele.money > 100 && ele.money <= 200);
+                } else if (dataset.id === '3') {
+                    arr = data.filter(ele => ele.money > 200 && ele.money <= 300);
+                }
+                render(arr);
+            }
+        });
+    </script>
+</body>
+</html>

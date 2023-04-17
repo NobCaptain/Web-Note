@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      @keyframes move {
+        from {
+          transform: translate(0,0);
+        }
+        25% {
+          transform: translate(300px,0);
+        }
+        50% {
+          transform: translate(300px,300px);
+        }
+        75% {
+          transform: translate(0,300px);
+        }
+        to {
+          transform: translate(0,0);
+        }
+      }
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        animation: move 5s linear 0s infinite alternate;
+      }
+      div:hover {
+        animation-play-state: paused;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

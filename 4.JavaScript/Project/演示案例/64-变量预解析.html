@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(num1);
+        var num1 = 10;
+        /* 
+            上面的代码通过变量预解析就相当于下面的代码：
+            var num1;
+            console.log(num1);
+            num1 = 10;
+            因为经过变量预解析，变量的声明会被提升到当前作用域的最上面，而变量的赋值不会提升所以还在console.log()语句的下面，所以console.log()语句输出的变量的值是undefined
+         */
+        console.log(num2);
+        let num2 = 10;
+        /* 
+            上面的代码不会通过变量预解析，因为变量预解析只会发生在使用var关键字声明的变量上，所以使用let关键字声明的变量和使用const声明的常量，不会发生变量预解析，又因为使用let关键字声明的变量，不会发生变量预解析，所以上面的代码会报错
+         */
+    </script>
+</body>
+</html>

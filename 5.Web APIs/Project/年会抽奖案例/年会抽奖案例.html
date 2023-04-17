@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年会抽奖案例</title>
+</head>
+<body>
+    <div>
+        一等奖：<span id="one"></span>
+    </div>
+    <div>
+        二等奖：<span id="two"></span>
+    </div>
+    <div>
+        三等奖：<span id="three"></span>
+    </div>
+    <script>
+        // 声明一个数组，里面存放着名字。
+        const arr = ['张三','李四','王五'];
+        // 从数组中随机获取一个名字给一等奖。
+        let random = Math.floor(Math.random() * arr.length);
+        const one = document.querySelector('#one');
+        one.innerHTML = `<strong>${arr[random]}</strong>`;
+        arr.splice(random,1);
+        // 从数组中随机获取一个名字给二等奖。
+        random = Math.floor(Math.random() * arr.length);
+        const two = document.querySelector('#two');
+        two.innerHTML = `<strong>${arr[random]}</strong>`;
+        arr.splice(random,1);
+        // 从数组中随机获取一个名字给三等奖。
+        random = Math.floor(Math.random() * arr.length);
+        const three = document.querySelector('#three');
+        three.innerHTML = `<strong>${arr[random]}</strong>`;
+    </script>
+</body>
+</html>

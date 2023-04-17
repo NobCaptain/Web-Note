@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .two {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .three {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <script>
+        const one = document.querySelector('.one');
+        const two = document.querySelector('.two');
+        const three = document.querySelector('.three');
+        let fn1 = function() {
+            console.log('我是爷爷');
+        }
+        one.addEventListener('click',fn1);
+        one.removeEventListener('click',fn1);
+        function fn2() {
+            console.log('我是爸爸');
+        }
+        two.addEventListener('click',fn2);
+        two.removeEventListener('click',fn2);
+        three.onclick = function() {
+            console.log('我是儿子');
+        }
+        three.onclick = null;
+    </script>
+</body>
+</html>

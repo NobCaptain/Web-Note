@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(...arr) {
+            console.log(arr);
+        }
+        fn1(1,2,3,4);
+        function fn2(a,b,...arr) {
+            console.log(arr);
+        }
+        fn2(1,2,3,4);
+        function fn3(...arr) {
+            console.log(arr);
+            arr.push(5);
+            console.log(arr);
+            let sum = 0;
+            arr.map(function(ele) {
+                sum += ele;
+            });
+            console.log(sum);
+        }
+        fn3(1,2,3,4);
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机点名案例</title>
+</head>
+<body>
+    <script>
+        let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操'];
+        // 利用随机函数随机生成一个数字作为索引号。
+        let random = Math.floor(Math.random() * arr.length);
+        // 使用数组[随机数]方法生成到页面中。
+        document.write(arr[random]);
+    </script>
+</body>
+</html>

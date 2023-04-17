@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渲染赠品案例</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        const gift = '50g茶叶,清洗球';
+        // 把字符串拆分为数组，这样两个赠品就拆分开了。
+        const arr = gift.split(',');
+        // 利用数组的map()方法遍历数组，同时把数组元素生成到<span>标签里面。
+        const newArr = arr.map(ele => `<span>【赠品】${ele}</span><br>`);
+        // 因为数组的map()方法返回的是数组，所以需要将其转换为字符串。
+        const str = newArr.join('');
+        // <p>标签的innerHTML存放刚才的返回值。
+        document.querySelector('p').innerHTML = str;
+        // 以上代码可以简写成以下代码
+        document.querySelector('p').innerHTML = gift.split(',').map(ele => `<span>【赠品】${ele}</span><br>`).join('');
+    </script>
+</body>
+</html>

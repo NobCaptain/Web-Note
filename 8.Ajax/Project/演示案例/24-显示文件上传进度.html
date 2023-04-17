@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body>
+    <input type="file" id="file">
+    <button type="submit">提交</button>
+    <img src="" id="img">
+    <div class="progress" style="width: 500px;">
+        <div class="progress-bar progress-bar-striped active">
+            0%
+        </div>
+    </div>
+    <script>
+        const button = document.querySelector('button');
+        button.addEventListener('click',function() {
+            // 判断用户有没有提交文件。
+            const file = document.querySelector('#file').files;
+            if (file.length <= 0) {
+                alert('请选择上传文件');
+            } else {
+                // 用户提交了文件就将其发送至服务器中。
+                const fd = new FormData();
+                fd.append('files',file[0]);
+                const xhr = new XMLHttpRequest();
+                // 监听XMLHttpRequest对象中的upload属性的onprogress事件，该事件是在上传或下载文件时触发。
+                xhr.upload.onprogress = function(e) {
+                    // 判断事件对象中lengthComputable属性是否为真。
+                    if (e.lengthComputable) {
+                        // 使用事件对象中的loaded属性来获取已上传了多少字节，使用事件对象中的total属性来获取需传输的字节，将它们相除并乘以100，然后再向上取整，就可以得到传输的进度。
+                        let jd = Math.ceil((e.loaded / e.total) * 100);
+                        // 将传输的进度渲染到页面中。
+                        document.querySelector('.progress div').style = 'width:' + jd + '%';
+                        document.querySelector('.progress div').innerHTML = jd + '%';
+                    }
+                }
+                // 监听XMLHttpRequest对象中的upload属性的onload事件，该事件是在上传完文件时触发。
+                xhr.upload.onload = function() {
+                    // 文件上传完毕时，将进度条变成绿色。
+                    document.querySelector('.progress div').classList.remove('progress-bar-striped');
+                    document.querySelector('.progress div').classList.add('progress-bar-success');
+                }
+                xhr.open('POST','http://www.liulongbin.top:3006/api/upload/avatar');
+                // 如果要提交文件那么XMLHttpRequest对象中的setRequestHeader()方法不需要写。
+                // xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                xhr.send(fd);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        const data = JSON.parse(xhr.responseText);
+                        if (data.status === 200) {
+                            document.querySelector('#img').src = 'http://www.liulongbin.top:3006' + data.url;
+                        } else {
+                            alert('上传失败');
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

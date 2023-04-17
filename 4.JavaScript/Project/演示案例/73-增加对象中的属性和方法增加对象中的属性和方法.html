@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            'user-name': '可可',
+            type: '阿拉斯加犬',
+            age: 5,
+            color: '棕色',
+            jineng: function() {
+                console.log('汪汪汪');
+                console.log('演电影');
+            },
+            'say-he': function() {
+                console.log('你好');
+            }
+        }
+        obj.type = '萨摩耶';
+        obj['user-name'] = '哈哈';
+        obj.jineng = function() {
+            console.log('呜呜呜');
+            console.log('唱歌');
+        }
+        obj['say-he'] = function() {
+            console.log('芜湖');
+        }
+        console.log(obj['user-name'],obj.type,obj.age,obj.color);
+        obj.jineng();
+        obj['say-he']();
+        let obj1 = new Object();
+        obj1['user-name'] = '大黄';
+        obj1.type = '中华田园犬';
+        obj1.jineng = function() {
+            console.log('打滚');
+        }
+        obj1['say-he'] = function() {
+            console.log('嘿哈');
+        }
+        console.log(obj1['user-name'],obj1.type);
+        obj1.jineng();
+        obj1['say-he']();
+    </script>
+</body>
+</html>

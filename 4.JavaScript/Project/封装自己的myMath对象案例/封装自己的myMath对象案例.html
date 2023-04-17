@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装自己的myMath对象案例</title>
+</head>
+<body>
+    <script>
+        // 声明一个myMath对象。
+        let myMath = {
+            // 给对象添加PI属性。
+            PI: 3.1415926,
+            // 给对象添加max()方法。
+            max: function() {
+                let max = arguments[0];
+                for (let i = 1; i < arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max;
+            },
+            // 给对象添加min()方法。
+            min: function() {
+                let min = arguments[0];
+                for (let i = 1; i < arguments.length; i++) {
+                    if (arguments[i] < min) {
+                        min = arguments[i];
+                    }
+                }
+                return min;
+            }
+        }
+        console.log(myMath.PI);
+        console.log(myMath.max(3,2,5));
+        console.log(myMath.min(3,2,5));
+    </script>
+</body>
+</html>

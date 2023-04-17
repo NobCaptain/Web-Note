@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      div {
+        float: left;
+        width: 200px;
+        height: 100px;
+        margin-left: 30px;
+        border: 2px solid pink;
+      }
+      .one {
+        /* 溢出的部分可见 */
+        overflow: visible;
+      }
+      .two {
+        /* 溢出的部分不可见 */
+        overflow: hidden;
+      }
+      .three {
+        /* 不管是否有溢出，都会显示滚动条 */
+        overflow: scroll;
+      }
+      .four {
+        /* 如果有溢出显示滚动条，如果没有溢出不显示滚动条 */
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字</div>
+    <div class="two">这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字</div>
+    <div class="three">这是一个文字这是一个文字</div>
+    <div class="four">这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字这是一个文字</div>
+  </body>
+</html>

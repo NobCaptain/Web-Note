@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Obj(name) {
+            this.uname = name;// 实例成员
+        }
+        Obj.age = 6;// 静态成员
+        Obj.sayHi = function() {// 静态成员
+            console.log(11);
+            console.log(this.age);
+        }
+        console.log(Obj.age);
+        Obj.sayHi();
+    </script>
+</body>
+</html>

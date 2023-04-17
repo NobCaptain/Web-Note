@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "289092",
+      "name": "we_block",
+      "font_class": "weblock",
+      "unicode": "e77f",
+      "unicode_decimal": 59263
+    },
+    {
+      "icon_id": "12910676",
+      "name": "床位管理",
+      "font_class": "chuangweiguanli",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12952764",
+      "name": "设备管理",
+      "font_class": "shebeiguanli",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "12952766",
+      "name": "用户管理",
+      "font_class": "yonghuguanli",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    }
+  ]
+}

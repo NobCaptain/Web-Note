@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>购物车展示案例</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .list {
+        width: 990px;
+        margin: 100px auto 0;
+      }
+      .item {
+        padding: 15px;
+        transition: all 0.5s;
+        display: flex;
+        border-top: 1px solid #e4e4e4;
+      }
+      .item:nth-child(4n) {
+        margin-left: 0;
+      }
+      .item:hover {
+        cursor: pointer;
+        background-color: #f5f5f5;
+      }
+      .item img {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .item .name {
+        font-size: 18px;
+        margin-right: 10px;
+        color: #333;
+        flex: 2;
+      }
+      .item .name .tag {
+        display: block;
+        padding: 2px;
+        font-size: 12px;
+        color: #999;
+      }
+      .item .price,
+      .item .sub-total {
+        font-size: 18px;
+        color: firebrick;
+        flex: 1;
+      }
+      .item .price::before,
+      .item .sub-total::before,
+      .amount::before {
+        content: "¥";
+        font-size: 12px;
+      }
+      .item .spec {
+        flex: 2;
+        color: #888;
+        font-size: 14px;
+      }
+      .item .count {
+        flex: 1;
+        color: #aaa;
+      }
+      .total {
+        width: 990px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        border-top: 1px solid #e4e4e4;
+        padding: 20px;
+      }
+      .total .amount {
+        font-size: 18px;
+        color: firebrick;
+        font-weight: bold;
+        margin-right: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="list"></div>
+    <div class="total">
+      <div>合计：<span class="amount"></span></div>
+    </div>
+    <script>
+      const goodsList = [
+        {
+          id: "4001172",
+          name: "称心如意手摇咖啡磨豆机咖啡豆研磨机",
+          price: 289.9,
+          picture: "./images/1.jpg",
+          count: 2,
+          spec: { color: "白色" },
+        },
+        {
+          id: "4001009",
+          name: "竹制干泡茶盘正方形沥水茶台品茶盘",
+          price: 109.8,
+          picture: "./images/2.png",
+          count: 3,
+          spec: { size: "40cm*40cm", color: "黑色" },
+        },
+        {
+          id: "4001874",
+          name: "古法温酒汝瓷酒具套装白酒杯莲花温酒器",
+          price: 488,
+          picture: "./images/3.png",
+          count: 1,
+          spec: { color: "青色", sum: "一大四小" },
+        },
+        {
+          id: "4001649",
+          name: "大师监制龙泉青瓷茶叶罐",
+          price: 139,
+          picture: "./images/4.png",
+          count: 1,
+          spec: { size: "小号", color: "紫色" },
+          gift: "50g茶叶,清洗球",
+        },
+      ];
+      // 使用数组的map()方法遍历后台传来的数组对象。
+      document.querySelector('.list').innerHTML = goodsList.map(ele => {
+        // 解构后台传来的数组对象中的对象。
+        const {name,price,picture,count,spec,gift} = ele;
+        // 获取后台传来的数组对象中的对象的spec属性中的属性值，并将其转换为字符串。
+        const newSpec = Object.values(spec).join('/');
+        // 判断后台传来的数组对象中的对象中是否有gift属性如果没有就返回一个空字符串，如果有就返回字符串。
+        const newGift = gift ? gift.split(',').map(ele => `<span class="tag">【赠品】${ele}</span>`).join('') : '';
+        // 计算后台传来的数组对象中的对象的price属性和count属性的积，因为price属性可能是浮点数，所以计算会有误差，所以要将其转换为整数来进行运算，然后为了计算的正确性，还需要将结果变回浮点数。
+        const subTotal = ((price * 100 * count) / 100).toFixed(2);
+        // 将处理好的数据返回给数组的map方法，然后因为返回的是数组，要将其转换为字符串，然后添加进类名为list的盒子中。
+        return `
+            <div class="item">
+                <img src=${picture} alt="">
+                <p class="name">${name}${newGift}</p>
+                <p class="spec">${newSpec}</p>
+                <p class="price">${price}</p>
+                <p class="count">x${count}</p>
+                <p class="sub-total">${subTotal}</p>
+            </div>
+        `
+      }).join('');
+      // 将后台传来的数组对象中的对象的价格和数量进行累加然后返回给类名为amount盒子中。
+      const total = goodsList.reduce((prev,ele) => prev + (ele.price * 100 * ele.count) / 100,0);
+      document.querySelector('.amount').innerHTML = total.toFixed(2);
+    </script>
+  </body>
+</html>

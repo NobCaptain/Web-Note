@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      .box {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background-color: pink;
+      }
+      .box1 {
+        position: absolute;
+        top: 150px;
+        width: 200px;
+        height: 100px;
+        background-color: gray;
+      }
+      .fl {
+        float: left;
+        width: 100px;
+        height: 20px;
+        padding: 80px;
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      祖先元素
+      <div class="box1">绝对定位的盒子</div>
+    </div>
+    <div class="fl">浮动的盒子</div>
+  </body>
+</html>

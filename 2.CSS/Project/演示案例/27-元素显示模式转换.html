@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      /* 块级元素转换为行内元素其高度宽度不能设置 */
+      div {
+        width: 100px;
+        height: 100px;
+        display: inline;
+        background-color: pink;
+      }
+      /* 行内元素转换为块级元素其高度宽度可以设置 */
+      span {
+        width: 200px;
+        height: 100px;
+        display: block;
+        background-color: yellow;
+      }
+      /* 块级元素转换为行内块元素使其一行能显示多个 */
+      p {
+        width: 200px;
+        height: 100px;
+        display: inline-block;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>块级元素转换为行内元素</div>
+    <span>行内元素转换为块级元素</span>
+    <p>块级元素转换为行内块元素</p>
+    <p>块级元素转换为行内块元素</p>
+  </body>
+</html>

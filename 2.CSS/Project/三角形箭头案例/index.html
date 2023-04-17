@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三角形箭头案例</title>
+    <style>
+        div {
+            position: relative;
+            width: 200px;
+            height: 30px;
+            border: 1px solid black;
+        }
+        div::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            transform: rotate(45deg);
+            transition: transform 1s;
+        }
+        div:hover::after {
+            transform: rotate(225deg);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

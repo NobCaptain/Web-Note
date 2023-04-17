@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论列表案例</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">发表评论</h3>
+        </div>
+        <form class="panel-body" id="formAddCmt">
+            <div>评论人：</div>
+            <input type="text" class="form-control" name="username" autocomplete="off" />
+            <div>评论内容：</div>
+            <textarea class="form-control" name="content"></textarea>
+            <button type="submit" class="btn btn-primary">发表评论</button>
+        </form>
+    </div>
+    <ul class="list-group" id="cmt-list"></ul>
+    <script src="./js/jQuery-min.js"></script>
+    <script>
+        // 声明一个渲染列表函数。
+        function getdata() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://www.liulongbin.top:3006/api/cmtlist',
+                success: function(res) {
+                    if (res.status === 200) {
+                        let arr = [];
+                        $.each(res.data,function(index,ele) {
+                            arr.push('<li class="list-group-item"><span class="badge" style="background-color: #F0AD4E;">评论时间：' + ele.tiem + '</span><span class="badge" style="background-color: #5BC0DE;">评论人：' + ele.username + '</span>' + ele.content + '</li>');
+                        });
+                        $('#cmt-list').empty().html(arr.join(''));
+                    } else {
+                        alert('获取评论列表失败');
+                    }
+                }
+            });
+        }
+        getdata();
+        // 发布评论模块。
+        $('form').on('submit',function(e) {
+            e.preventDefault();
+            let data = $(this).serialize();
+            console.log(data);
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/addcmt',
+                data: data,
+                success: function(res) {
+                    if (res.status === 201) {
+                        getdata();
+                        $('form')[0].reset();// 将表单元素的jQuery对象转换成DOM对象才能使用reset()方法。
+                    } else {
+                        alert('发表评论失败');
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>

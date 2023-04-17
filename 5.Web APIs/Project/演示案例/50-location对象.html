@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#/my">123</a>
+    <button>百度</button>
+    <button>百度</button>
+    <button>刷新</button>
+    <button>百度</button>
+    <script>
+        console.log(location.href);
+        console.log(location.host);
+        console.log(location.port);
+        console.log(location.pathname);
+        console.log(location.search);
+        console.log(location.hash);
+        const button = document.querySelectorAll('button');
+        button[0].addEventListener('click',function() {
+            location.href = 'http://www.baidu.com';
+        });
+        button[1].addEventListener('click',function() {
+            location.assign('http://www.baidu.com');
+        });
+        button[2].addEventListener('click',function() {
+            location.reload();
+        });
+        button[3].addEventListener('click',function() {
+            location.replace('http://www.baidu.com');
+        });
+        const a = document.querySelector('a');
+        a.addEventListener('click',function() {
+            setTimeout(function() {
+                console.log(location.hash);
+            },500);
+        });
+    </script>
+</body>
+</html>

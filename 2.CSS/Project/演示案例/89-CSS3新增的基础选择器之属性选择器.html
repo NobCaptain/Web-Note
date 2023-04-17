@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      /* 选择带有value属性的标签 */
+      [value] {
+        color: red;
+      }
+      /* 选择带有value属性且属性值为one的标签 */
+      [value="one"] {
+        color: green;
+      }
+      /* 选择带有value属性且属性值为two的标签 */
+      [value^="tw"] {
+        color: blue;
+      }
+      /* 选择带有value属性且属性值为three的标签 */
+      [value$="ree"] {
+        color: skyblue;
+      }
+      /* 选择带有value属性且属性值为four的标签 */
+      [value*="ou"] {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div value="">带有value属性的标签</div>
+    <div value="one">带有value属性且属性值为one的标签</div>
+    <div value="two">带有value属性且属性值为two的标签</div>
+    <div value="three">带有value属性且属性值为three的标签</div>
+    <div value="four">带有value属性且属性值为four的标签</div>
+  </body>
+</html>

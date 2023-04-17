@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .r {
+            background-color: red;
+        }
+        .g {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="r"></div>
+    <div class="g"></div>
+    <script>
+        const div = document.querySelector('div');
+        function wu() {
+            console.log(1);
+        }
+        div.addEventListener('click',wu);
+        const r = document.querySelector('.r');
+        r.addEventListener('click',function() {
+            console.log(2);
+        });
+        const g = document.querySelector('.g');
+        let gr = function() {
+            console.log(3);
+        }
+        g.addEventListener('click',gr());
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box {
+      border: 5px solid black;
+    }
+    /* 使用CSS的伪元素方法给父盒子里的首尾两端分别添加一个行内盒子，我们将它们转换为表格，并且给最后一个盒子添加清除浮动属性，就间接实现了额外标签法 */
+    .box::before,
+    .box::after {
+      content: "";
+      /* 将这两个盒子都转换为表格 */
+      display: table;
+    }
+    /* 给最后一个盒子添加清除浮动属性 */
+    .box::after {
+      clear: both;
+    }
+    /* 单独照顾低版本的浏览器 */
+    .box {
+      *zoom: 1;
+    }
+    .fl {
+      float: left;
+      width: 200px;
+      height: 100px;
+      background-color: pink;
+      margin-right: 15px;
+    }
+    .footer {
+      height: 200px;
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="fl">浮动的子元素</div>
+    <div class="fl">浮动的子元素</div>
+  </div>
+  <div class="footer">标准流的盒子</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(name, type, blood,attack) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.attack = attack;
+            this.run = function(run) {
+                console.log(run);
+            }
+        }
+        let lp = new Star('廉颇','力量型','500血量','近战攻击');
+        console.log(lp.name,lp.type,lp.blood,lp.attack);
+        lp.run('跑步');
+        let hy = new Star('后裔','射手型','100血量','远程攻击');
+        console.log(hy.name,hy.type,hy.blood,hy.attack);
+        hy.run('走路');
+    </script>
+</body>
+</html>

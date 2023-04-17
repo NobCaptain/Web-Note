@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding-top: 60px;
+        }
+        .one,
+        .three {
+            float: left;
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+            padding: 10px;
+            background-color: pink;
+        }
+        .two {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .three {
+            background-color: red;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div class="two"></div>
+    </div>
+    <div class="three"></div>
+    <script>
+        const div1 = document.querySelector('.one');
+        const div2 = document.querySelector('.two');
+        const div3 = document.querySelector('.three');
+        console.log(div1.offsetWidth);
+        console.log(div1.offsetHeight);
+        console.log(div3.offsetWidth);
+        console.log(div3.offsetHeight);
+        console.log(div2.offsetParent);
+        console.log(div2.offsetTop);
+        console.log(div2.offsetLeft);
+        console.log(div3.offsetTop);
+    </script>
+</body>
+</html>

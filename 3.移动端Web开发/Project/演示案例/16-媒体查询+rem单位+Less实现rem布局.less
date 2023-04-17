@@ -1,0 +1,16 @@
+@font: (750px / 10);
+@media screen and (min-width: 400px) {
+    html {
+        font-size: (400px / 10);
+    }
+}
+@media screen and (min-width: 750px) {
+    html {
+        font-size: @font;
+    }
+}
+div {
+    width: (100rem / @font);
+    height: (100rem / @font);
+    background-color: pink;
+}

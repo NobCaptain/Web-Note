@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>0</div>
+    <script>
+        const div = document.querySelector('div');
+        let num = 0;
+        function mouseMove() {
+            div.innerHTML = ++num;
+        }
+        function throttle(fn,t) {
+            let times = null;
+            // 因为事件监听方法中的要执行的函数的函数名的后面加了括号，那么就变成了调用要执行的函数，此时如果触发了事件要执行的函数是无法被调用的，所以当我们要返回一个要执行的函数给事件监听方法中的要执行的函数。
+            return function() {
+                // 每次触发事件时，就先判断是否有setTimeout()定时器，如果有就不开启定时器，如果没有就开启定时器。
+                if (!times) {
+                    // 声明一个setTimeout()定时器。
+                    times = setTimeout(function() {
+                        // 在定时器里面调用要执行的函数，并且要在定时器里面把定时器清空。
+                        fn()
+                        // 因为在定时器中是无法删除定时器的，因为定时器还在运作，所以不能使用clearTimeout()方法来删除定时器，但是我们可以使用定时器 = null方法来将定时器删除。
+                        times = null;
+                    },t);
+                }
+            }
+            
+        }
+        div.addEventListener('mousemove',throttle(mouseMove,500));
+    </script>
+</body>
+</html>

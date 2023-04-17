@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>增减商品数量案例</title>
+</head>
+<body>
+    <div class="box">
+        <a href="javascript:;" class="jian">-</a>
+        <input type="text" class="ipt" value="1">
+        <a href="javascript:;" class="jia">+</a>
+    </div>
+    <div class="box">
+        <a href="javascript:;" class="jian">-</a>
+        <input type="text" class="ipt" value="1">
+        <a href="javascript:;" class="jia">+</a>
+    </div>
+    <div class="box">
+        <a href="javascript:;" class="jian">-</a>
+        <input type="text" class="ipt" value="1">
+        <a href="javascript:;" class="jia">+</a>
+    </div>
+    <script src="./js/jQuery-min.js"></script>
+    <script>
+        // 点击加号商品数量会加1。
+        $('.jia').click(function() {
+            let num = $(this).siblings('.ipt').val();
+            num++;
+            $(this).siblings('.ipt').val(num);
+        });
+        // 点击减号商品数量会减1。
+        $('.jian').click(function() {
+            let num = $(this).siblings('.ipt').val();
+            // 判断商品数量是否为1，如果为1就不能再减了。
+            if (num > 1) {
+                num--;
+                $(this).siblings('.ipt').val(num);
+            }
+        });
+    </script>
+</body>
+</html>

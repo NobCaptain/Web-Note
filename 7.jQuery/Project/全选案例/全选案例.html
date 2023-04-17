@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选案例</title>
+</head>
+<body>
+    <input type="checkbox" id="ckAll">全选
+    <input type="checkbox" class="ck">1
+    <input type="checkbox" class="ck">2
+    <input type="checkbox" class="ck">3
+    <input type="checkbox" class="ck">4
+    <input type="checkbox" class="ck">5
+    <script src="./js/jQuery-min.js"></script>
+    <script>
+        // 给全选按钮添加change事件。
+        $('#ckAll').change(function() {
+            // 当触发全选按钮的change事件时，就让小复选框全选。
+            $('.ck').prop('checked',$(this).prop('checked'));
+        });
+        // 给小复选框添加change事件。
+        $('.ck').change(function() {
+            // 当触发小复选款的change事件时，就判断勾选的小复选框的个数是否等于小复选框的个数，如果等于就让人全选按钮勾选上，否则全选按钮不勾选。
+            if ($('.ck:checked').length === $('.ck').length) {
+                $('#ckAll').prop('checked',true);
+            } else {
+                $('#ckAll').prop('checked',false);
+            }
+        });
+    </script>
+</body>
+</html>

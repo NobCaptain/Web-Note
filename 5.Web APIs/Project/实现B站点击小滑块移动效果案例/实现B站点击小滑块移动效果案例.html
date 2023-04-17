@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现B站点击小滑块移动效果案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            position: relative;
+            width: 250px;
+            height: 20px;
+        }
+        ul li {
+            float: left;
+            list-style: none;
+        }
+        ul li a {
+            display: block;
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .line {
+            position: absolute;
+            bottom: 0px;
+            left: 10px;
+            width: 30px;
+            height: 5px;
+            background-color: pink;
+            /* 添加过渡效果 */
+            transition: all .5s;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <div class="line"></div>
+    </ul>
+    <script>
+        const ul = document.querySelector('ul');
+        const line = document.querySelector('.line');
+        // 用到事件委托。
+        ul.addEventListener('click',function(e) {
+            // 点击链接得到当前元素的offsetLeft值。
+            if (e.target.tagName === 'A') {
+                // 修改line颜色块的left值=点击链接的offsetLeft。
+                line.style.transform= `translate(${e.target.offsetLeft}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

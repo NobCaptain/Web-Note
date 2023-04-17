@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    <script type="text/html" id="muban">
+        <div>姓名：{{uname}}</div>
+        <div>年龄：{{age}}</div>
+    </script>
+    <script>
+        const obj = {
+            uname: '张三',
+            age: 19
+        }
+        // 声明一个函数。
+        function template(id,data) {
+            // 获取模板中的内容。
+            let str = document.getElementById(id).innerHTML;
+            let zz = /{{\s*([a-zA-Z]+)\s*}}/;
+            // 利用正则表达式将模板中的内容带有{{}}的内容转换成数据。
+            let pattResult = null;
+            while (pattResult = zz.exec(str)) {
+                str = str.replace(pattResult[0],data[pattResult[1]]);
+            }
+            // 返回处理好的字符串。
+            return str;
+        }
+        // 调用函数。
+        let str = template('muban',obj);
+        const div = document.querySelector('.box');
+        // 渲染页面。
+        div.innerHTML = str;
+    </script>
+</body>
+</html>

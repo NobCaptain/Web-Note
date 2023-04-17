@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组转换为字符串案例</title>
+</head>
+<body>
+    <script>
+        let arr = ['red','green','blue','pink'];
+        // 需要一个新变量用于存放转换完的字符串。
+        let str = '';
+        // 遍历原来的数组，分别把里面的数据取出来，加到字符串里面，同时在后面多加一个|。
+        for (let i = 0; i < arr.length; i++) {
+            str += arr[i] + '|';
+        }
+        console.log(str);
+    </script>
+</body>
+</html>

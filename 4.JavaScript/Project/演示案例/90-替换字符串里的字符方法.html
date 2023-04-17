@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str1 = 'Hello';
+        console.log(str1.replace('l','e'));
+        // replace()方法只会替换掉满足条件的第一个字符，但是我们可以通过遍历字符串来替换掉字符串中所有要被替换掉的字符
+        let str2 = 'Hello';
+        while (str2.indexOf('l') !== -1) {
+            str2 = str2.replace('l','e');
+        }
+        console.log(str2);
+    </script>
+</body>
+</html>

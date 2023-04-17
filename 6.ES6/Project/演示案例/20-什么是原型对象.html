@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tath1,tath2;
+        function Star(uname,age) {
+            tath1 = this,
+            this.uname = uname,
+            this.age = age
+        }
+        Star.prototype.sing = function() {
+            tath2 = this;
+            console.log('唱歌');
+        }
+        const ldh = new Star('刘德华',33);
+        const zxy = new Star('张学友',42);
+        console.log(ldh);
+        console.log(zxy);
+        console.log(ldh.uname);
+        console.log(ldh.age);
+        ldh.sing();
+        console.log(zxy.uname);
+        console.log(zxy.age);
+        zxy.sing();
+        console.log(tath1 === zxy);
+        console.log(tath2 === zxy);
+        console.log(tath1 === tath2);
+    </script>
+</body>
+</html>

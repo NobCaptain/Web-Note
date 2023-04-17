@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转中心点案例</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid pink;
+            overflow: hidden;
+        }
+        div::after {
+            content: 'NoobCaptain';
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            transform-origin: left bottom;
+            transform: rotate(180deg);
+            transition: transform 1s;
+        }
+        div:hover::after {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

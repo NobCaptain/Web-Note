@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fn();
+        function fn() {
+            console.log(11);
+        }
+        /* 
+            上面的代码通过函数预解析就相当于下面的代码：
+            function fn() {
+                console.log(11);
+            }
+            fn();
+            因为经过函数预解析，函数的声明会被提升到当前作用域的最上面，而调用函数语句不会提升，所以调用函数语句会在函数的声明的下面，所以在代码执行时会先执行函数的声明再执行调用函数语句，所以我们可以将调用函数语句写在函数的声明的上面，因为函数预解析会将函数的声明提升到当前作用域的最上面
+         */
+    </script>
+</body>
+</html>

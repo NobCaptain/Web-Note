@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 300px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+        我是一段文字
+    </div>
+    <script>
+        window.addEventListener('scroll',function() {
+            console.log('浏览器滚动条滚动了');
+        });
+        const div = document.querySelector('div');
+        div.addEventListener('scroll',function() {
+            console.log('元素中的滚动条滚动了');
+        });
+    </script>
+</body>
+</html>

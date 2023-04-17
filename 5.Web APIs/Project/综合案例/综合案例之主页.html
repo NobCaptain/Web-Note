@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>综合案例之主页</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li {
+            float: left;
+            width: 100px;
+            height: 25px;
+            background-color: pink;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="./综合案例之登录页面.html">请先登录</a></li>
+        <li><a href="../注册案例/注册案例.html">免费注册</a></li>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+    </ul>
+    <script>
+        // 显示模块。
+        const li1 = document.querySelector('ul li:first-child');
+        const li2 = li1.nextElementSibling;
+        // 调用函数让其从本地存储中获取用户名然后渲染到页面。
+        function reden() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                li1.innerHTML = `<a href="javascript:;">${username}</a>`;
+                li2.innerHTML = `<a href="javascript:;">退出登录</a>`;
+            } else {
+                li1.innerHTML = '<a href="./综合案例之登录页面.html">请先登录</a>';
+                li2.innerHTML = '<a href="../注册案例/注册案例.html">免费注册</a>';
+            }
+        }
+        reden();
+        // 点击退出登录删除本地存储中的用户名。
+        li2.addEventListener('click',function() {
+            localStorage.removeItem('username');
+            reden();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      /* 元素的后代可以是儿子、孙子、重孙子 */
+      div a {
+        color: red;
+      }
+      ul li div span {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>
+        <a href="#">孙子</a>
+      </span>
+    </div>
+    <ul>
+      <li>
+        <div>
+          <span>文本</span>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>

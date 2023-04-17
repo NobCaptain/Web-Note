@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div data-id="one" data-prm="123" data-user-name="haha"></div>
+    <script>
+        const div = document.querySelector('div');
+        console.log(div.dataset.id);
+        div.dataset.id = 'two';
+        console.log(div.dataset.id);
+        console.log(div.dataset.prm);
+        div.dataset.prm = '456';
+        console.log(div.dataset.prm);
+        console.log(div.dataset.userName);
+        div.dataset.userName = 'wuwu';
+        console.log(div.dataset.userName);
+    </script>
+</body>
+</html>

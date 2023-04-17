@@ -1,0 +1,1 @@
+success({uname: '张三',age: 19});

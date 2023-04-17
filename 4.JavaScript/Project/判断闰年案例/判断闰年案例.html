@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断闰年案例</title>
+</head>
+<body>
+    <script>
+        // 弹出输入框，让用户输入年份，把这个值取过来保存到变量中。
+        let year = prompt('请输入年份');
+        // 使用双分支if else语句来判断是否是闰年，如果是闰年，就执行if大括号里面的输出语句，否则就执行else大括号里面的输出语句，该if else语句中的条件用到了算法，此算法是能被4整除且不能整除100的为闰年（如：2004年就是闰年，1901年不是闰年），或者能够被400整除的就是闰年。
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            alert('闰年');
+        } else {
+            alert('平年');
+        }
+        alert('if语句后面的代码');
+    </script>
+</body>
+</html>

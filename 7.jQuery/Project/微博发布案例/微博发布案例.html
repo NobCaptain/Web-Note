@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微博发布案例</title>
+</head>
+<body>
+    <textarea id="tx" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script src="./js/jQuery-min.js"></script>
+    <script>
+        // 点击按钮发布。
+        $('button').on('click',function() {
+            const li = $(`<li></li>`);
+            li.html($('#tx').val() + '<a href="javascript:;">删除</a>');
+            $('ul').append(li);
+            $('#tx').val('');
+        });
+        // 点击删除实现删除操作。
+        $('ul').on('click','a',function() {
+            $(this).parent().remove();
+        });
+    </script>
+</body>
+</html>

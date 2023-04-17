@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      /* 选择既能被div>span>a子代选择器选中，又能被.one类选择器选中的标签 */
+      div>span>a.one {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>
+        <a href="#" class="one">带有one类名的标签</a>
+      </span>
+      <a href="#" class="one">带有one类名的标签</a>
+    </div>
+  </body>
+</html>

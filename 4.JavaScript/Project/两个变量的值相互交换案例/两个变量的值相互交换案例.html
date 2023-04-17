@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两个变量的值相互交换案例</title>
+</head>
+<body>
+    <script>
+        // 声明一个临时变量temp。
+        let temp,apple1 = '红苹果',apple2 = '绿苹果';
+        // 将变量1里的变量值赋值给临时变量。
+        temp = apple1;
+        // 将变量2里的变量值赋值给变量1。
+        apple1 = apple2;
+        // 将临时变量里的变量值赋值给变量2。
+        apple2 = temp;
+        console.log(apple1);
+        console.log(apple2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .yeye {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .father {
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+        .one {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .two {
+            width: 150px;
+            height: 150px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="yeye">
+        <div class="father"></div>
+    </div>
+    <div class="one">
+        <div class="two"></div>
+    </div>
+    <script>
+        const yeye = document.querySelector('.yeye');
+        const father = document.querySelector('.father');
+        yeye.addEventListener('mouseover',function() {
+            console.log('yeye');
+        });
+        father.addEventListener('mouseover',function() {
+            console.log('father');
+        });
+        const one = document.querySelector('.one');
+        const two = document.querySelector('.two');
+        one.addEventListener('mouseenter',function() {
+            console.log('one');
+        });
+        two.addEventListener('mouseenter',function() {
+            console.log('two');
+        });
+    </script>
+</body>
+</html>

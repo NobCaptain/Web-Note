@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      /* 选择器权重越大优先级也越高，优先级高的选择器的样式会覆盖优先级低的选择器的样式 */
+      span {
+        color: yellow;
+      }
+      .one {
+        color: pink;
+      }
+      li {
+        color: #fff;
+      }
+      ul li {
+        color: red;
+      }
+      /* 继承性的权重是0，如果该元素没有直接选中，不管父元素权重多高，子元素得到的权重都是0 */
+      div {
+        color: gray!important;
+      }
+      p {
+        color: blue;
+      }
+      /* 优先级相同时，则执行层叠性 */
+      .duan {
+        color: skyblue;
+      }
+      .duan {
+        color: green;
+      }
+      /* 如果全是继承性，那么就看继承性里面谁最高，看继承了哪个父级，哪个父级高，哪个选择器的样式生效 */
+      .father {
+        color: purple!important;
+      }
+      dl {
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="one">文本</span>
+    <ul>
+      <li>文本</li>
+      <li>文本</li>
+    </ul>
+    <div>
+      <p>文本</p>
+    </div>
+    <p class="duan">文本</p>
+    <a href="#" class="father">
+      <dl>
+        <dt>文本</dt>
+      </dl>
+    </a>
+  </body>
+</html>

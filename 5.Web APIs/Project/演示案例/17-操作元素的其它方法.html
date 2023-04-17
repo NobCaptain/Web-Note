@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="one" class="xg" data-user-name="haha"></div>
+    <script>
+        const div = document.querySelector('div');
+        console.log(div.getAttribute('id'));
+        console.log(div.getAttribute('class'));
+        console.log(div.getAttribute('data-user-name'));
+        div.setAttribute('class','yb');
+        console.log(div.getAttribute('class'));
+        div.removeAttribute('class');
+        console.log(div.getAttribute('class'));
+    </script>
+</body>
+</html>

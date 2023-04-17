@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D导航栏案例</title>
+    <style>
+        li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            list-style: none;
+            perspective: 800px;
+        }
+        .box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all .6s;
+        }
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+        .front,
+        .bottom {
+            position: absolute;
+            top: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .front {
+            background-color: pink;
+            transform: translateZ(15px);
+        }
+        .bottom {
+            background-color: skyblue;
+            transform: translateY(15px) rotateX(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front">Noob</div>
+                <div class="bottom">Captain</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">Noob</div>
+                <div class="bottom">Captain</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">Noob</div>
+                <div class="bottom">Captain</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">Noob</div>
+                <div class="bottom">Captain</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">Noob</div>
+                <div class="bottom">Captain</div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

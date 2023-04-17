@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤敏感词案例</title>
+</head>
+<body>
+    <!-- 用户输入内容。 -->
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <div></div>
+    <script>
+        const tx = document.querySelector('textarea');
+        const btn = document.querySelector('button');
+        const div = document.querySelector('div');
+        btn.addEventListener('click', function () {
+            // 内容进行正则替换查找，找到敏感词，进行替换成**。
+            // 要全局替换使用修饰符g。
+            div.innerHTML = tx.value.replace(/牛逼|牛了/g,'**');
+            tx.value = ''
+        });
+  </script>
+</body>
+</html>

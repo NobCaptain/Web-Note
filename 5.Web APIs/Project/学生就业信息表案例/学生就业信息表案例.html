@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>学生就业信息表案例</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #721c24;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin: 20px 0;
+      }
+      table {
+        margin: 0 auto;
+        width: 800px;
+        border-collapse: collapse;
+        color: #004085;
+      }
+      th {
+        padding: 10px;
+        background: #cfe5ff;
+
+        font-size: 20px;
+        font-weight: 400;
+      }
+      td,
+      th {
+        border: 1px solid #b8daff;
+      }
+      td {
+        padding: 10px;
+        color: #666;
+        text-align: center;
+        font-size: 16px;
+      }
+      tbody tr {
+        background: #fff;
+      }
+      tbody tr:hover {
+        background: #e1ecf8;
+      }
+      .info {
+        width: 900px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      .info input,
+      .info select {
+        width: 80px;
+        height: 27px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #b8daff;
+        padding-left: 5px;
+        box-sizing: border-box;
+        margin-right: 15px;
+      }
+      .info button {
+        width: 60px;
+        height: 27px;
+        background-color: #004085;
+        outline: none;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .info .age {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>新增学员</h1>
+    <form class="info" autocomplete="off">
+      姓名：<input type="text" class="uname" name="uname" /> 
+      年龄：<input type="text" class="age" name="age" />
+      性别:
+      <select name="gender" class="gender">
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+      薪资：<input type="text" class="salary" name="salary" />
+      就业城市：<select name="city" class="city">
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="广州">广州</option>
+        <option value="深圳">深圳</option>
+        <option value="曹县">曹县</option>
+      </select>
+      <button class="add">录入</button>
+    </form>
+    <h1>就业榜</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>性别</th>
+          <th>薪资</th>
+          <th>就业城市</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script>
+      // 读取本地存储数据。
+      // 如果本地存储有数据，则返回JSON.parse()之后的对象。
+      // 如果本地存储没有数据，则声明一个空的数组。
+      const arr = JSON.parse(localStorage.getItem('arr')) || [];
+      // 渲染模块。
+      function render() {
+        // 使用数组的map()方法来遍历数组对象，往<td>标签里面填写对应的数据，并且让其直接返回整个<tr>标签。
+        // 渲染数据的时候，我们需要动态给<a>标签添加自定义属性data-id="0"，这样点击当前对象就知道索引号了。
+        const trArr = arr.map(function(ele,index) {
+          return `
+            <tr>
+              <td>${ele.stuId}</td>
+              <td>${ele.uname}</td>
+              <td>${ele.age}</td>
+              <td>${ele.gender}</td>
+              <td>${ele.salary}</td>
+              <td>${ele.city}</td>
+              <td>
+                <a href="javascript:" data-id="${index}">删除</a>
+              </td>
+            </tr> 
+          `
+        });
+        // 通过<tbody>标签的DOM对象中的innerHTML属性，将返回的结果添加到<tbody>标签中，这是为了尽量减少DOM操作，所以此处我们不在使用创建节点，追加节点的方式来添加，而是使用后面VUE的做法。
+        const tbody = document.querySelector('tbody');
+        // 因为数组的map()方法返回的是一个数组，所以需要通过数组的join()方法转换将返回的结果转换为字符串
+        tbody.innerHTML = trArr.join('');;
+      }
+      render();
+      // 录入模块。
+      const info = document.querySelector('.info');
+      const uname = document.querySelector('[name="uname"]');
+      const age = document.querySelector('[name="age"]');
+      const gender = document.querySelector('[name="gender"]');
+      const salary = document.querySelector('[name="salary"]');
+      const city = document.querySelector('[name="city"]');
+      info.addEventListener('submit',function(e) {
+        // 事件是提交事件，同样阻止默认提交事件。
+        e.preventDefault();
+        // 非空判断：获取所有需要填写的表单，他们共同特点是都有name属性，遍历这些表单，如果有一个值为空，则return返回提示输入为空中断程序。
+        if (!uname.value || !age.value || !salary.value) {
+          return console.log('输入为空');
+        }
+        // 创建新的对象，里面存储表单获取过来的数据，将其追加给数组。
+        arr.push({
+          // 关于stuId处理的问题，最好的做法是新增加序号应该是最后一条数据的序号加1，但是要判断，如果没有数据则是直接赋值为1。
+          stuId: arr.length ? arr[arr.length - 1].stuId + 1 : 1,
+          uname: uname.value,
+          age: age.value,
+          gender: gender.value,
+          salary: salary.value,
+          city: city.value
+        });
+        // 放入本地存储里面，记得一定要把数组利用JSON.stringify()方法存储为字符串。
+        localStorage.setItem('arr',JSON.stringify(arr));
+        // 渲染页面。
+        render();
+        // 重置表单。
+        info.reset();
+      });
+      // 点击删除模块。
+      // 采用事件委托形式，给<tbody>标签注册点击事件。
+      const tbody = document.querySelector('tbody');
+      tbody.addEventListener('click',function(e) {
+        if (e.target.tagName === 'A') {
+          if (confirm('确定要删除这条数据吗？')) {
+            // 点击链接，要删除的是对应数组里面的这个数据，而不是删除DOM节点，根据索引号，利用数组的splice()方法来删除这条数据。
+            arr.splice(e.target.dataset.id,1);
+            // 写入本地存储，记得一定要把数组利用JSON.stringify()方法存储为字符串。
+            localStorage.setItem('arr',JSON.stringify(arr));
+            // 重新渲染。
+            render();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

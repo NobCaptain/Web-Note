@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除商品</title>
+    <style>
+        i {
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="javascript:;" class="jian">-</a>
+        <input type="text" class="ipt" value="1">
+        <a href="javascript:;" class="jia">+</a>
+        <span class="jg">价格：￥15.30</span>
+        <span class="xj">小计：￥15.30</span>
+        <a href="javascript:;" class="delet">删除</a>
+    </div>
+    <div class="box">
+        <a href="javascript:;" class="jian">-</a>
+        <input type="text" class="ipt" value="1">
+        <a href="javascript:;" class="jia">+</a>
+        <span class="jg">价格：￥13.60</span>
+        <span class="xj">小计：￥13.60</span>
+        <a href="javascript:;" class="delet">删除</a>
+    </div>
+    <div class="box">
+        <a href="javascript:;" class="jian">-</a>
+        <input type="text" class="ipt" value="1">
+        <a href="javascript:;" class="jia">+</a>
+        <span class="jg">价格：￥12.30</span>
+        <span class="xj">小计：￥12.30</span>
+        <a href="javascript:;" class="delet">删除</a>
+    </div>
+    <div class="zj">总计：0</div>
+    <div class="ze">总额：0</div>
+    <a href="javascript:;" class="deletAll">全部删除</a>
+    <script src="./js/jQuery-min.js"></script>
+    <script>
+        // 点击加号商品数量会加1。
+        $('.jia').click(function() {
+            let num = $(this).siblings('.ipt').val();
+            num++;
+            $(this).siblings('.ipt').val(num);
+            // 获取商品价格。
+            const jg = $(this).siblings('.jg').html().substr(4);
+            // 商品价格乘以商品数量。
+            $(this).siblings('.xj').html('小计：￥' + (((jg * 100) * num) / 100).toFixed(2));
+            // 调用count函数。
+            count();
+        });
+        // 点击减号商品数量会减1。
+        $('.jian').click(function() {
+            let num = $(this).siblings('.ipt').val();
+            // 判断商品数量是否为1，如果为1就不能再减了。
+            if (num > 1) {
+                num--;
+                $(this).siblings('.ipt').val(num);
+                // 获取商品价格。
+                const jg = $(this).siblings('.jg').html().substr(4);
+                // 商品价格乘以商品数量。
+                $(this).siblings('.xj').html('小计：￥' + (((jg * 100) * num) / 100).toFixed(2));
+                // 调用count函数。
+                count();
+            }
+        });
+        // 声明一个函数用于求总计和总额。
+        function count() {
+            let zj = 0;
+            let ze = 0;
+            // 遍历所有的商品的商品数量，然后将其相加。
+            $('.ipt').each(function(index,ele) {
+                zj += parseInt($(ele).val());
+            });
+            // 遍历所有的商品的价格小计，然后将其相加。
+            $('.xj').each(function(index,ele) {
+                ze += +$(ele).text().substr(4);
+            });
+            $('.zj').text('总计：' + zj);
+            $('.ze').text('总额：' + ((ze * 100) / 100).toFixed(2));
+        }
+        // 调用count函数。
+        count();
+        // 点击删除删除该元素。
+        $('.delet').click(function() {
+            $(this).parents('.box').remove();
+        });
+        // 点击全部删除删除全部元素。
+        $('.deletAll').click(function() {
+            $('.box').remove();
+        });
+    </script>
+</body>
+</html>

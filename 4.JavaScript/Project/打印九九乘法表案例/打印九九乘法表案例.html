@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打印九九乘法表案例</title>
+</head>
+<body>
+    <script>
+        let str = '';
+        // 外层的for循环控制行数，循环9次可以打印9行。
+        for (let i = 1; i <= 9; i++) {
+            // 里层的for循环控制每行的公式。
+            for (let j = 1; j <= i; j++) {
+                str += j + '×' + i + '=' + j * i + '\t';
+            }
+            // 每行打印完毕后，都需要重新换一行。
+            str += '\n';
+        }
+        // 输出结果。
+        console.log(str);
+    </script>
+</body>
+</html>

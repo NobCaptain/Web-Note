@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj1 = {
+            age: 10,
+            happy: ['唱','跳','rap'],
+            family: {
+                father: '张三'
+            }
+        }
+        const obj2 = {}
+        function deepCopy(newObj,oldObj) {
+            for (let k in oldObj) {
+                if (oldObj[k] instanceof Array) {
+                    newObj[k] = [];
+                    deepCopy(newObj[k],oldObj[k]);
+                } else if (oldObj[k] instanceof Object) {
+                    newObj[k] = {};
+                    deepCopy(newObj[k],oldObj[k]);
+                } else {
+                    newObj[k] = oldObj[k];
+                }
+            }
+        }
+        deepCopy(obj2,obj1);
+        obj2.age = 20;
+        obj2.happy[0] = '唱歌';
+        obj2.family.father = '李四';
+        console.log(obj1);
+        console.log(obj2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判断成绩级别案例</title>
+</head>
+<body>
+    <script>
+        // 弹出输入框，让用户输入分数，把这个值取过来保存到变量中。
+        let num = prompt('请输入您的成绩');
+        // 使用多分支if else if语句来分别判断输出不同的值。
+        if (num >= 90) {
+            alert('A');
+        } else if (num >= 80) {
+            alert('B')
+        } else if (num >= 70) {
+            alert('C')
+        } else if (num >= 60) {
+            alert('D')
+        } else {
+            alert('E');
+        }
+        alert('if语句后面的代码');
+    </script>
+</body>
+</html>

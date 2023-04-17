@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="我要买电脑">
+    <input type="checkbox" id="one">
+    <script>
+        const ipt = document.querySelector('input');
+        console.log(ipt.type);
+        ipt.type = 'password';
+        console.log(ipt.type);
+        console.log(ipt.value);
+        ipt.value = '给你买'
+        console.log(ipt.value);
+        const ckb = document.querySelector('#one');
+        console.log(ckb.checked);
+        ckb.checked = true;
+    </script>
+</body>
+</html>

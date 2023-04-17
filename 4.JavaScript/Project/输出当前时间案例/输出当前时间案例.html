@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输出当前时间案例</title>
+</head>
+<body>
+    <script>
+        // 声明一个函数。
+        function getTime() {
+            // 实例化Date内置对象。
+            let time = new Date();
+            // 获取当前系统的时间中的小时数字。
+            let h = time.getHours();
+            // 判断小时数字是否小于10如果小于10就要在小时数字的前面加个0。
+            h = h < 10 ? '0' + h : h;
+            // 获取当前系统的时间中的分钟数字。
+            let m = time.getMinutes();
+            // 判断分钟数字是否小于10如果小于10就要在分钟数字的前面加个0。
+            m = m < 10 ? '0' + m : m;
+            // 获取当前系统的时间中的秒钟数字。
+            let s = time.getSeconds();
+            // 判断秒钟数字是否小于10如果小于10就要在秒钟数字的前面加个0。
+            s = s < 10 ? '0' + s : s;
+            // 输出当前的时间。
+            console.log(h + ':' + m + ':' +s);
+        }
+        // 调用函数。
+        getTime();
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片放大案例</title>
+    <style>
+        div {
+            overflow: hidden;
+            margin: 0px auto;
+        }
+        img {
+            transition: transform 1s;
+        }
+        div:hover img {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./imgs/logo.png" alt="">
+    </div>
+</body>
+</html>
