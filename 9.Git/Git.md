@@ -608,7 +608,7 @@
 
       ![60](imgs/60.gif)
 
-    - 当我们使用了 `ssh-keygen -t rsa -b 4096 -C "注册Github账号时填写的邮箱地址"` 命令生成了SSH Key时，我们可以在 `C:\用户名\用户名文件夹\.ssh` 目录中查看生成的 `id_rsa` 和 `id_rsa.pub` 文件，如下图所示：
+    - 当我们使用了 `ssh-keygen -t rsa -b 4096 -C "注册Github账号时填写的邮箱地址"` 命令生成了SSH Key时，我们可以在 `C:\用户\用户名文件夹\.ssh` 目录中查看生成的 `id_rsa` 和 `id_rsa.pub` 文件，如下图所示：
 
       ![61](imgs/61.gif)
 
